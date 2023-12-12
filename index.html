@@ -35,7 +35,7 @@
         </div>
         <div class="row">
             <p class="fs-5">
-                Articulators across the vocal tract contain abundant information regarding the human speech production mechanism. Devising a mechanism to decode these articulatory movements to synthesize speech can significantly improve silent speech interactions in numerous applications. We propose fine-tuning a multi-modal self-supervised AV-HuBERT network using (video, text) pairs, leveraging its pre-training on content-rich audio-visual representations. Our approach, which does not rely on a ground-truth audio stream, demonstrates its generalizability to unseen speakers and its capacity to synthesize voice for any target speaker of choice with improved intelligibility. On the USC-TIMIT corpus, the model achieved a 65.65\% and 15.18\% Word Error Rate (WER) when synthesized in the original speaker's and any target speaker's voice, respectively, compared to the reported 102.6\% WER using the existing method. To the best of our knowledge, this is the first study to demonstrate that the rtMRI-based video-to-speech synthesis model generalizes to speakers across two evaluated databases despite diverse conditions in hardware, recording instruments, and illumination.
+                Articulators across the vocal tract contain abundant information regarding the human speech production mechanism. Devising a mechanism to decode these articulatory movements to synthesize speech can significantly improve silent speech interactions in numerous applications. We propose fine-tuning a multi-modal self-supervised AV-HuBERT network using (video, text) pairs, leveraging its pre-training on content-rich audio-visual representations. Our approach, which does not rely on a ground-truth audio stream, demonstrates its generalizability to unseen speakers and its capacity to synthesize voice for any target speaker of choice with improved intelligibility. On the USC-TIMIT corpus, the model achieved a 65.65% and 15.18% Word Error Rate (WER) when synthesized in the original speaker's and any target speaker's voice, respectively, compared to the reported 102.6% WER using the existing method. To the best of our knowledge, this is the first study to demonstrate that the rtMRI-based video-to-speech synthesis model generalizes to speakers across two evaluated databases despite diverse conditions in hardware, recording instruments, and illumination.
             </p>
         </div>
 
@@ -47,7 +47,7 @@
         <div class="row p-2"></div>
         <div class="row">
             <figure class="figure text-center">
-                <img src="samples/mri_teaser.png" alt="..." class="figure-img" style="width: 700px;" >
+                <img src="samples/mri_teaser.png" alt="..." class="figure-img" style="width: 300px;" >
                 <figcaption class="figure-caption text-center">Proposed Method Overview: The method, requiring paired (video, text) data, involves fine-tuning the green blocks and freezing the red block. TTS synthesis is performed, allowing speech generation in the voice of an available rtMRI-aligned speaker or an external target speaker.</figcaption>
             </figure>
         </div>
