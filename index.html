@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#712cf9">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <style>
+        
+    </style>
+
+</head>
+
+<body class="" style="margin: 100px;">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <div class="d-block p-3">
+        <div class="row p-5">
+            <h1 class="display-3 text-lg-center">
+                MRI2Speech: Silent Speech Synthesis from Articulatory Movements Recorded by Real-time MRI
+            </h1>
+        </div>
+        <div class="row p-2">
+
+        </div>
+        <div class="row">
+            <h3 class="">Abstract: </h4>
+        </div>
+        <div class="row p-1">
+
+        </div>
+        <div class="row">
+            <p class="fs-5">
+                Articulators across the vocal tract contain abundant information regarding the human speech production mechanism. Devising a mechanism to decode these articulatory movements to synthesize speech can significantly improve silent speech interactions in numerous applications. We propose fine-tuning a multi-modal self-supervised AV-HuBERT network using (video, text) pairs, leveraging its pre-training on content-rich audio-visual representations. Our approach, which does not rely on a ground-truth audio stream, demonstrates its generalizability to unseen speakers and its capacity to synthesize voice for any target speaker of choice with improved intelligibility. On the USC-TIMIT corpus, the model achieved a 65.65\% and 15.18\% Word Error Rate (WER) when synthesized in the original speaker's and any target speaker's voice, respectively, compared to the reported 102.6\% WER using the existing method. To the best of our knowledge, this is the first study to demonstrate that the rtMRI-based video-to-speech synthesis model generalizes to speakers across two evaluated databases despite diverse conditions in hardware, recording instruments, and illumination.
+            </p>
+        </div>
+
+        <div class="row p-2"></div>
+        
+        <div class="row">
+            <h3> Proposed Method</h4>
+        </div>
+        <div class="row p-2"></div>
+        <div class="row">
+            <figure class="figure text-center">
+                <img src="samples/mri_teaser.png" alt="..." class="figure-img" style="width: 700px;" >
+                <figcaption class="figure-caption text-center">Proposed Method Overview: The method, requiring paired (video, text) data, involves fine-tuning the green blocks and freezing the red block. TTS synthesis is performed, allowing speech generation in the voice of an available rtMRI-aligned speaker or an external target speaker.</figcaption>
+            </figure>
+        </div>
+    </div>
+
+    <h3>Table of Contents</h3>
+
+    <ul>
+        <li><a href="#section1">Comparing samples on USC-TIMIT MRI dataset</a></li>
+    </ul>
+    Note : The samples for comparison are taken from demo's of previous work. Therefore they are not cherry-picked 
+    samples.
+
+    <div class="d-block p-3">
+
+        <div class="row">
+            <h3>Comparing samples on USC-TIMIT MRI dataset</h3>
+        </div>
+     
+
+        <div class="row d-flex ">
+            <table class="table  m-2">
+                <thead>
+                    <tr class="flex-row">
+                        <th class="col-2 text-center">ID</th>
+                        <th class="col-2 text-center">Text</th>
+                        <th class="col-1 text-center">MRI</th>
+                        <th class="col-1 text-center">Otani23</th>
+                        <th class="col-2 text-center">Ours (Original speaker)</th> 
+                        <th class="col-2 text-center">Ours (Novel speaker)</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="flex-row">
+                        <td>usctimit_mri_m3_016_020_1</td>
+                        <td>ALIMONY HARMS A DIVORCED MAN'S WEALTH</td>
+                        <td class="text-center">
+                            <video  width="280" height="280" controls src="samples/mri/video/usctimit_mri_m3_016_020_1.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <audio controls src="samples/mri/otani23/usctimit_mri_m3_016_020_1.wav"></audio>
+                        </td>
+                        <td class="text-center">
+                            <audio controls src="samples/mri/ours/synth_audio_mriFS2/usctimit_mri_m3_016_020_1.wav"></audio>
+                        </td>
+                        <td class="text-center">
+                            <audio controls src="samples/mri/ours/synth_audio_librittsFS2/usctimit_mri_m3_016_020_1.wav"></audio>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+
+</body>
+
+</html>
