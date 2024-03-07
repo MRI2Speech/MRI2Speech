@@ -56,9 +56,11 @@
     <h3>Table of Contents</h3>
 
     <ul>
-        <li><a href="#section1">Comparing samples on USC-TIMIT MRI dataset</a></li>
+        <li><a href="#section1">Comparing samples with current SOTA on USC-TIMIT MRI dataset</a></li>
         <li><a href="#section2">Samples on ArtSpeech Database 1</a></li>
         <li><a href="#section2">Samples from unseen speaker across USC-TIMIT MRI and ArtSpeech Database 1</a></li>
+        <li><a href="#section3">Ablation study: Involving the synthesis of speech from the masked lip movement in rtMRI video input.</a></li>
+        <li><a href="#section4">Ablation study: Synthesizing speech solely from the visible lip movement in the input rtMRI video.</a></li>
     </ul>
     Note : The samples for comparison are taken from demo's of previous work. Therefore they are not cherry-picked 
     samples. "Otani23" is the existing state-of-the-art method for MRI-to-Speech synthesis. Link to its paper can be found: https://www.isca-speech.org/archive/interspeech_2023/otani23_interspeech.html
@@ -433,7 +435,144 @@
                 </tbody>
             </table>
         </div>
-        
+        <div class="row p-2">
+        </div>
+
+        <div class="row">
+            <h3>Ablation study: Involving the synthesis of speech from the masked lip movement in rtMRI video input.</h3>
+        </div>
+
+        <div class="row d-flex ">
+            <table class="table  m-2">
+                <thead>
+                    <tr class="flex-row">
+                        <th class="col-2 text-center">Database</th>
+                        <th class="col-2 text-center">speaker ID</th>
+                        <th class="col-2 text-center">Ground-truth Text</th>
+                        <th class="col-1 text-center">Input MRI</th>
+                        <th class="col-2 text-center">Ours (Original speaker)</th> 
+                        <th class="col-2 text-center">Ours (Novel speaker)</th>  
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="flex-row">
+                        <td>USC-TIMIT MRI</td>
+                        <td>usctimit_mri_f1_356_360_5</td>
+                        <td>the fish began to leap frantically on the surface of the small lake</td>
+                        <td class="text-center">
+                            <video  width="280" height="280" controls src="samples/mri/masked_lip/usctimit_mri_f1_356_360_5.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <audio controls src="samples/mri/masked_lip/ori_speaker_usctimit_mri_f1_356_360_5.wav"></audio>
+                        </td>
+                        <td class="text-center">
+                            <audio controls src="samples/mri/masked_lip/novel_eng_1_usctimit_mri_f1_356_360_5.wav"></audio>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr class="flex-row">
+                        <td>USC-TIMIT MRI</td>
+                        <td>usctimit_mri_f2_371_375_5</td>
+                        <td>irish youngsters eat fresh kippers for breakfast</td>
+                        <td class="text-center">
+                            <video  width="280" height="280" controls src="samples/mri/masked_lip/usctimit_mri_f2_371_375_5.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <audio controls src="samples/mri/masked_lip/ori_speaker_usctimit_mri_f2_371_375_5.wav"></audio>
+                        </td>
+                        <td class="text-center">
+                            <audio controls src="samples/mri/masked_lip/novel_eng_1_usctimit_mri_f2_371_375_5.wav"></audio>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr class="flex-row">
+                        <td>USC-TIMIT MRI</td>
+                        <td>usctimit_mri_m4_151_155_4</td>
+                        <td>the diagnosis was discouraging however he was not overly worried</td>
+                        <td class="text-center">
+                            <video  width="280" height="280" controls src="samples/mri/masked_lip/usctimit_mri_m4_151_155_4.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <audio controls src="samples/mri/masked_lip/ori_speaker_usctimit_mri_m4_151_155_4.wav"></audio>
+                        </td>
+                        <td class="text-center">
+                            <audio controls src="samples/mri/masked_lip/novel_eng_1_usctimit_mri_m4_151_155_4.wav"></audio>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row p-2">
+        </div>
+
+        <div class="row">
+            <h3>Ablation study: Synthesizing speech solely from the visible lip movement in the input rtMRI video.</h3>
+        </div>
+
+        <div class="row d-flex ">
+            <table class="table  m-2">
+                <thead>
+                    <tr class="flex-row">
+                        <th class="col-2 text-center">Database</th>
+                        <th class="col-2 text-center">speaker ID</th>
+                        <th class="col-2 text-center">Ground-truth Text</th>
+                        <th class="col-1 text-center">Input MRI</th>
+                        <th class="col-2 text-center">Ours (Original speaker)</th> 
+                        <th class="col-2 text-center">Ours (Novel speaker)</th>  
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="flex-row">
+                        <td>USC-TIMIT MRI</td>
+                        <td>usctimit_mri_f2_201_205_5</td>
+                        <td>keep the thermometer under your tongue</td>
+                        <td class="text-center">
+                            <video  width="280" height="280" controls src="samples/mri/only_lip/usctimit_mri_f2_201_205_5.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <audio controls src="samples/mri/only_lip/usctimit_mri_f2_201_205_5.wav"></audio>
+                        </td>
+                        <td class="text-center">
+                            <audio controls src="samples/mri/only_lip/novel_eng_1_usctimit_mri_f2_201_205_5.wav"></audio>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr class="flex-row">
+                        <td>USC-TIMIT MRI</td>
+                        <td>usctimit_mri_f5_316_320_4</td>
+                        <td>according to my interpretation of the problem two lines must be perpendicular</td>
+                        <td class="text-center">
+                            <video  width="280" height="280" controls src="samples/mri/only_lip/usctimit_mri_f5_316_320_4.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <audio controls src="samples/mri/only_lip/usctimit_mri_f5_316_320_4.wav"></audio>
+                        </td>
+                        <td class="text-center">
+                            <audio controls src="samples/mri/only_lip/novel_eng_1_usctimit_mri_f5_316_320_4.wav"></audio>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr class="flex-row">
+                        <td>USC-TIMIT MRI</td>
+                        <td>usctimit_mri_m3_151_155_2</td>
+                        <td>how would you evaluate this algebraic expression</td>
+                        <td class="text-center">
+                            <video  width="280" height="280" controls src="samples/mri/only_lip/usctimit_mri_m3_151_155_2.mp4"></video>
+                        </td>
+                        <td class="text-center">
+                            <audio controls src="samples/mri/only_lip/usctimit_mri_m3_151_155_2.wav"></audio>
+                        </td>
+                        <td class="text-center">
+                            <audio controls src="samples/mri/only_lip/novel_eng_1_usctimit_mri_m3_151_155_2.wav"></audio>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
 </body>
