@@ -35,7 +35,7 @@
         </div>
         <div class="row">
             <p class="fs-5">
-                Articulators across the vocal tract contain abundant information regarding the human speech production mechanism. Devising a mechanism to decode these articulatory movements to synthesize speech can significantly improve silent speech interactions in numerous applications. We propose fine-tuning a multi-modal self-supervised AV-HuBERT network using (video, text) pairs, leveraging its pre-training on content-rich audio-visual representations. Our approach, which does not rely on a ground-truth audio stream, demonstrates its generalizability to unseen speakers and its capacity to synthesize voice for any target speaker of choice with improved intelligibility. On the USC-TIMIT corpus, the model achieved a 65.65% and 15.18% Word Error Rate (WER) when synthesized in the original speaker's and any target speaker's voice, respectively, compared to the reported 102.6% WER using the existing method. To the best of our knowledge, this is the first study to demonstrate that the rtMRI-based video-to-speech synthesis model generalizes to speakers across two evaluated databases despite diverse conditions in hardware, recording instruments, and illumination.
+                Previous speech synthesis models from articulatory movements recorded using real-time MRI (rtMRI) heavily rely on ground-truth audio. Moreover, applying a loss over audio representations like Mel-spectrograms fails to disentangle the content information from the ambient noise and speaker characteristics, leading to poor intelligibility. For the first time, we employ a self-supervised AV-HuBERT network trained using only (video and text) to understand the significance of vocal cord articulators in speech production. With no reliance on ground-truth speech, we perform thorough experiments on two database and demonstrate our method’s ability to generalize to unseen speakers during training and its ability to synthesize speech in any novel voice of interest. Our method achieved a 15.18% Word Error Rate (WER) on the USC-TIMIT MRI corpus, marking a significant 575.89% improvement over the current state-of-the-art (SOTA). 
             </p>
         </div>
 
@@ -48,7 +48,7 @@
         <div class="row">
             <figure class="figure text-center">
                 <img src="samples/mri_teaser.png" alt="..." class="figure-img" style="width: 300px;" >
-                <figcaption class="figure-caption text-center">Proposed Method Overview: The method, requiring paired (video, text) data, involves fine-tuning the green blocks and freezing the red block. TTS synthesis is performed, allowing speech generation in the voice of an available rtMRI-aligned speaker or an external target speaker.</figcaption>
+                <figcaption class="figure-caption text-center">Proposed method overview: During training, the method requires paired (video, text) data and involves training the blue block and fine-tuning the green blocks. During inference, TTS synthesis is performed, allowing speech generation in the voice of an existing speaker or an external target speaker.</figcaption>
             </figure>
         </div>
     </div>
@@ -59,8 +59,8 @@
         <li><a href="#section1">Comparing samples with current SOTA on USC-TIMIT MRI dataset</a></li>
         <li><a href="#section2">Samples on ArtSpeech Database 1</a></li>
         <li><a href="#section2">Samples from unseen speaker across USC-TIMIT MRI and ArtSpeech Database 1</a></li>
-        <li><a href="#section3">Ablation study: Synthesizing speech by masking lip movements in the input rtMRI video.</a></li>
-        <li><a href="#section4">Ablation study: Synthesizing speech solely from the visible lip movement in the input rtMRI video.</a></li>
+        <li><a href="#section3">Ablation study: Synthesizing speech by masking lip movements in the input rtMRI video. (Masked Lip)</a></li>
+        <li><a href="#section4">Ablation study: Synthesizing speech solely from the visible lip movement in the input rtMRI video. (Cropped Lip)</a></li>
     </ul>
     Note : The samples for comparison are taken from demo's of previous work. Therefore they are not cherry-picked 
     samples. "Otani23" is the existing state-of-the-art method for MRI-to-Speech synthesis. Link to its paper can be found: https://www.isca-speech.org/archive/interspeech_2023/otani23_interspeech.html
@@ -439,7 +439,7 @@
         </div>
 
         <div class="row">
-            <h3>Ablation study: Synthesizing speech by masking lip movements in the input rtMRI video.</h3>
+            <h3>Ablation study: Synthesizing speech by masking lip movements in the input rtMRI video. (Masked Lip)</h3>
         </div>
 
         <div class="row d-flex ">
@@ -508,7 +508,7 @@
         </div>
 
         <div class="row">
-            <h3>Ablation study: Synthesizing speech solely from the visible lip movement in the input rtMRI video.</h3>
+            <h3>Ablation study: Synthesizing speech solely from the visible lip movement in the input rtMRI video. (Cropped Lip)</h3>
         </div>
 
         <div class="row d-flex ">
