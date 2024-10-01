@@ -35,7 +35,7 @@
         </div>
         <div class="row">
             <p class="fs-5">
-                Previous speech synthesis models from articulatory movements recorded using real-time MRI (rtMRI) heavily rely on ground-truth audio. Moreover, applying a loss over audio representations like Mel-spectrograms fails to disentangle the content information from the ambient noise and speaker characteristics, leading to poor intelligibility. For the first time, we employ a self-supervised AV-HuBERT network trained using only (video and text) to understand the significance of vocal cord articulators in speech production. With no reliance on ground-truth speech, we perform thorough experiments on two database and demonstrate our method’s ability to generalize to unseen speakers during training and its ability to synthesize speech in any novel voice of interest. Our method achieved a 15.18% Word Error Rate (WER) on the USC-TIMIT MRI corpus, marking a significant 575.89% improvement over the current state-of-the-art (SOTA). 
+                Previous real-time MRI (rtMRI)-based speech synthesis models depend heavily on noisy ground-truth speech. Applying loss directly over ground truth mel-spectrograms entangles speech content with MRI noise, resulting in poor intelligibility. We introduce a novel approach that adapts the multi-modal self-supervised AV-HuBERT model for text prediction from rtMRI and incorporates a new flow-based duration predictor for speaker-specific alignment. The predicted text and durations are then used by a speech decoder to synthesize aligned speech in any novel voice. We conduct thorough experiments on two datasets and demonstrate our method's generalization ability to unseen speakers. We assess our framework's performance by masking parts of the rtMRI video to evaluate the impact of different articulators on text prediction. Our method achieves a $15.18\%$ Word Error Rate (WER) on the USC-TIMIT MRI corpus, marking a huge improvement over the current state-of-the-art. 
             </p>
         </div>
 
@@ -48,7 +48,7 @@
         <div class="row">
             <figure class="figure text-center">
                 <img src="samples/mri_teaser.png" alt="..." class="figure-img" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
-                <figcaption class="figure-caption text-center">Proposed method overview: During training, the method requires paired (video, text) data and involves training the blue block and fine-tuning the green blocks. During inference, TTS synthesis is performed, allowing speech generation in the voice of an existing speaker or an external target speaker.</figcaption>
+                <figcaption class="figure-caption text-center">System diagram of the inference process: AV-HuBERT predicts text from silent rtMRI videos. A trained duration predictor expands the phoneme representations, which are mapped to the acoustic space using a normalizing flow, allowing the decoder to synthesize speech.</figcaption>
             </figure>
         </div>
     </div>
