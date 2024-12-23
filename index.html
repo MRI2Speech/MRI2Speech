@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,11 +18,14 @@
             background-color: #712cf9;
             color: white;
             padding: 40px 0;
+            text-align: center;
         }
 
-        .author-section {
+        .author-section,
+        .accepted-section {
             margin-top: 30px;
             margin-bottom: 30px;
+            text-align: center;
         }
 
         .author-info p {
@@ -31,13 +33,24 @@
             margin-bottom: 0;
         }
 
-        .accepted-section {
-            margin: 40px 0;
+        .abstract-section,
+        .proposed-method-section,
+        .table-section {
+            margin: 20px 0;
         }
 
-        .btn-primary {
-            font-size: 1.2rem;
-            padding: 10px 20px;
+        .table-section h3 {
+            margin-bottom: 20px;
+        }
+
+        .figure img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .table {
+            margin: auto;
+            width: 90%;
         }
     </style>
 </head>
@@ -46,82 +59,64 @@
 
     <div class="container-fluid">
         <!-- Title Section -->
-        <div class="row title-section text-center">
-            <div class="col">
-                <h1 class="display-4">
-                    MRI2Speech: Speech Synthesis from Articulatory Movements Recorded by Real-time MRI
-                </h1>
-            </div>
+        <div class="title-section">
+            <h1 class="display-4">
+                MRI2Speech: Speech Synthesis from Articulatory Movements Recorded by Real-time MRI
+            </h1>
         </div>
 
-         <!-- Author Section -->
-         <div class="row justify-content-center author-section">
-            <div class="col-lg-8 text-center author-info">
+        <!-- Author Section -->
+        <div class="author-section">
+            <div class="author-info">
                 <p class="lead">
-                    Neil Shah<sup>1,2</sup>, Ayan Kashyap<sup>1</sup>, Shirish Karande<sup>2</sup>, 
-                    Vineet Gandhi<sup>1</sup>
+                    Neil Shah<sup>1,2</sup>, Ayan Kashyap<sup>1</sup>, Shirish Karande<sup>2</sup>, Vineet Gandhi<sup>1</sup>
                 </p>
                 <p><sup>1</sup>International Institute of Information Technology, Hyderabad, India</p>
                 <p><sup>2</sup>TCS Research, Pune, India</p>
             </div>
-        </div>  
-
-        <div class="row mt-4">
-            <div class="col-12 acceptance">
-                <h4>Accepted at IEEE ICASSP 2025</h4>
-                <p>International Conference on Acoustics, Speech, and Signal Processing</p>
-                <p>Hyderabad, India</p>
-            </div>
         </div>
 
+        <!-- Acceptance Section -->
+        <div class="accepted-section">
+            <h4>Accepted at IEEE ICASSP 2025</h4>
+            <p>International Conference on Acoustics, Speech, and Signal Processing</p>
+            <p>Hyderabad, India</p>
         </div>
-            <div class="row">
-                <h3 class="">Abstract: </h4>
-            </div>
-        <div class="row p-1">
 
-        <div class="row">
+        <!-- Abstract Section -->
+        <div class="abstract-section">
+            <h3>Abstract:</h3>
             <p class="fs-5">
-                Previous real-time MRI (rtMRI)-based speech synthesis models depend heavily on noisy ground-truth speech. Applying loss directly over ground truth mel-spectrograms entangles speech content with MRI noise, resulting in poor intelligibility. We introduce a novel approach that adapts the multi-modal self-supervised AV-HuBERT model for text prediction from rtMRI and incorporates a new flow-based duration predictor for speaker-specific alignment. The predicted text and durations are then used by a speech decoder to synthesize aligned speech in any novel voice. We conduct thorough experiments on two datasets and demonstrate our method's generalization ability to unseen speakers. We assess our framework's performance by masking parts of the rtMRI video to evaluate the impact of different articulators on text prediction. Our method achieves a 15.18% Word Error Rate (WER) on the USC-TIMIT MRI corpus, marking a huge improvement over the current state-of-the-art. 
+                Previous real-time MRI (rtMRI)-based speech synthesis models depend heavily on noisy ground-truth speech. Applying loss directly over ground truth mel-spectrograms entangles speech content with MRI noise, resulting in poor intelligibility. We introduce a novel approach that adapts the multi-modal self-supervised AV-HuBERT model for text prediction from rtMRI and incorporates a new flow-based duration predictor for speaker-specific alignment. The predicted text and durations are then used by a speech decoder to synthesize aligned speech in any novel voice. We conduct thorough experiments on two datasets and demonstrate our method's generalization ability to unseen speakers. Our method achieves a 15.18% Word Error Rate (WER) on the USC-TIMIT MRI corpus, marking a huge improvement over the current state-of-the-art.
             </p>
         </div>
 
-        <div class="row p-2"></div>
-        
-        <div class="row">
-            <h3> Proposed Method</h4>
-        </div>
-        <div class="row p-2"></div>
-        <div class="row">
-            <figure class="figure text-center">
-                <img src="samples/mri_teaser.png" alt="..." class="figure-img" style="max-width: 30%; height: auto; display: block; margin: 0 auto;">
-                <figcaption class="figure-caption text-center">System diagram of the inference process: AV-HuBERT predicts text from silent rtMRI videos. A trained duration predictor expands the phoneme representations, which are mapped to the acoustic space using a normalizing flow, allowing the decoder to synthesize speech.</figcaption>
+        <!-- Proposed Method Section -->
+        <div class="proposed-method-section text-center">
+            <h3>Proposed Method</h3>
+            <figure class="figure">
+                <img src="samples/mri_teaser.png" alt="System Diagram" class="figure-img">
+                <figcaption class="figure-caption">System diagram of the inference process: AV-HuBERT predicts text from silent rtMRI videos. A trained duration predictor expands the phoneme representations, which are mapped to the acoustic space using a normalizing flow, allowing the decoder to synthesize speech.</figcaption>
             </figure>
         </div>
-    </div>
 
-    <h3>Table of Contents</h3>
-
-    <ul>
-        <li><a href="#section1">Comparing samples with current SOTA on USC-TIMIT MRI dataset</a></li>
-        <li><a href="#section2">Samples on ArtSpeech Database 1</a></li>
-        <li><a href="#section2">Samples from unseen speaker across USC-TIMIT MRI and ArtSpeech Database 1</a></li>
-        <li><a href="#section3">Ablation study: Synthesizing speech by masking lip movements in the input rtMRI video. (Masked Lip)</a></li>
-        <li><a href="#section4">Ablation study: Synthesizing speech solely from the visible lip movement in the input rtMRI video. (Cropped Lip)</a></li>
-    </ul>
-    Note : The samples for comparison are taken from demo's of previous work. Therefore they are not cherry-picked 
-    samples. "Otani23" is the existing state-of-the-art method for MRI-to-Speech synthesis. Link to its paper can be found: https://www.isca-speech.org/archive/interspeech_2023/otani23_interspeech.html
-
-    <div class="d-block p-3">
-
-        <div class="row p-2">
+        <!-- Table of Contents -->
+        <div class="table-section">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#section1">Comparing samples with current SOTA on USC-TIMIT MRI dataset</a></li>
+                <li><a href="#section2">Samples on ArtSpeech Database 1</a></li>
+                <li><a href="#section3">Samples from unseen speaker across USC-TIMIT MRI and ArtSpeech Database 1</a></li>
+                <li><a href="#section4">Ablation study: Masking lip movements in rtMRI videos</a></li>
+                <li><a href="#section5">Ablation study: Synthesizing speech from visible lip movements</a></li>
+            </ul>
+            <p>Note: Samples for comparison are from demo videos of previous work. "Otani23" is the state-of-the-art method for MRI-to-Speech synthesis. <a href="https://www.isca-speech.org/archive/interspeech_2023/otani23_interspeech.html" target="_blank">Link to paper</a>.</p>
         </div>
+
 
         <div class="row">
             <h3>Comparing samples on USC-TIMIT MRI dataset</h3>
         </div>
-     
-
         <div class="row d-flex ">
             <table class="table  m-2">
                 <thead>
@@ -209,13 +204,9 @@
             </table>
         </div>
 
-        <div class="row p-2">
-        </div>
-
         <div class="row">
             <h3>Comparing samples on ArtSpeech Database 1</h3>
         </div>
-        
         <div class="row d-flex ">
             <table class="table  m-2">
                 <thead>
@@ -263,13 +254,9 @@
             </table>
         </div>
 
-        <div class="row p-2">
-        </div>
-
         <div class="row">
             <h3>Samples from unseen speaker across USC-TIMIT MRI and ArtSpeech Database 1</h3>
         </div>
-
         <div class="row d-flex ">
             <table class="table  m-2">
                 <thead>
@@ -352,67 +339,11 @@
                         </td>
                     </tr>
                 </tbody>
-                <!-- <tbody>
-                    <tr class="flex-row">
-                        <td>ArtSpeech Database 1</td>
-                        <td>P1</td>
-                        <td>P1_S3_6</td>
-                        <td>le chouchou du fou truqua le chargeur du fusil de leur nounou taciturne.</td>
-                        <td class="text-center">
-                            <video  width="280" height="280" controls src="samples/frenchmri/unseen/video/P1_S3_6.mp4"></video>
-                        </td>
-                        <td class="text-center">
-                            <video  width="280" height="280" controls src="samples/frenchmri/frenchmri/frenchmrigen_P1_S3_6.mp4"></video>
-                        </td>
-                        <td class="text-center">
-                            <video  width="280" height="280" controls src="samples/frenchmri/frenchmri/ljsgen_P1_S3_6.mp4"></video>
-                        </td>
-                        
-                    </tr>
-                </tbody> -->
-                <!-- <tbody>
-                    <tr class="flex-row">
-                        <td>ArtSpeech Database 1</td>
-                        <td>P5</td>
-                        <td>P5_S1_2</td>
-                        <td>en haut du cumulus pierre prit dix choux, du rouge et du clafoutis puis se camoufla en clown.</td>
-                        <td class="text-center">
-                            <video  width="280" height="280" controls src="samples/frenchmri/unseen/video/P5_S1_2.mp4"></video>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="samples/frenchmri/unseen/parrotTTS/ge_angelamerkel_P5_S1_2_gen.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="samples/frenchmri/unseen/parrotTTS/mr_f_P5_S1_2_gen.wav"></audio>
-                        </td>
-                    </tr>
-                </tbody>
-                <tbody>
-                    <tr class="flex-row">
-                        <td>ArtSpeech Database 1</td>
-                        <td>P10</td>
-                        <td>P10_S7_6</td>
-                        <td>a la cantine, un druze cache ses frasques et ses vices, en fricotant avec un plouc.</td>
-                        <td class="text-center">
-                            <video  width="280" height="280" controls src="samples/frenchmri/unseen/video/P10_S7_6.mp4"></video>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="samples/frenchmri/unseen/parrotTTS/ge_angelamerkel_P10_S7_6_gen.wav"></audio>
-                        </td>
-                        <td class="text-center">
-                            <audio controls src="samples/frenchmri/unseen/parrotTTS/mr_f_P10_S7_6_gen.wav"></audio>
-                        </td>
-                    </tr>
-                </tbody> -->
             </table>
-        </div>
-        <div class="row p-2">
-        </div>
 
         <div class="row">
             <h3>Ablation study: Synthesizing speech by masking lip movements in the input rtMRI video. (Masked Lip)</h3>
         </div>
-
         <div class="row d-flex ">
             <table class="table  m-2">
                 <thead>
@@ -475,14 +406,10 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
-        <div class="row p-2">
-        </div>
 
         <div class="row">
             <h3>Ablation study: Synthesizing speech solely from the visible lip movement in the input rtMRI video. (Cropped Lip)</h3>
         </div>
-
         <div class="row d-flex ">
             <table class="table  m-2">
                 <thead>
@@ -551,5 +478,4 @@
     </div>
 
 </body>
-
 </html>
